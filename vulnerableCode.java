@@ -6,18 +6,18 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * ATENÇÃO:
+ * ATENÇÃO: 
  * ==========================================================
  * ESTE CÓDIGO É INTENCIONALMENTE VULNERÁVEL.
- *
+ * 
  * Ele foi criado APENAS para fins educacionais, para que
- * ferramentas de SAST (CodeQL, Codacy, etc.) e de DAST
+ * ferramentas de SAST (CodeQL, Codacy, etc.) e de DAST 
  * possam identificar problemas de segurança.
- *
+ * 
  * NÃO UTILIZAR NENHUMA DESTAS PRÁTICAS EM CÓDIGO REAL.
  * ==========================================================
  */
-public class vulnerableCode {
+public class VulnerableCode {
 
     // 1) CREDENCIAIS EM CÓDIGO (HARD-CODED CREDENTIALS)
     // Problema: usuário, senha e URL do banco estão expostos no código-fonte.
@@ -29,7 +29,7 @@ public class vulnerableCode {
     /**
      * Simula um processo de login extremamente inseguro.
      *
-     * erabilidades principais:
+     * Vulnerabilidades principais:
      * - SQL Injection (concatenação direta de parâmetros na query).
      * - Exposição de credenciais no código.
      * - Uso de Statement em vez de PreparedStatement.
@@ -47,7 +47,7 @@ public class vulnerableCode {
             // Problema: username e password entram diretamente na query
             // sem validação ou parametrização.
             String sql = "SELECT * FROM usuarios WHERE username = '" + username
-                    + "' AND password = '" + password + "'";
+                       + "' AND password = '" + password + "'";
 
             stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
@@ -75,7 +75,7 @@ public class vulnerableCode {
     /**
      * Simula uma busca de usuários por termo de pesquisa.
      *
-     * erabilidade: SQL Injection pela concatenação da string "searchTerm".
+     * Vulnerabilidade: SQL Injection pela concatenação da string "searchTerm".
      */
     public void buscarUsuarioPorTermo(String searchTerm) {
         Connection conn = null;
@@ -107,7 +107,7 @@ public class vulnerableCode {
     /**
      * Exemplo de armazenamento de senha com algoritmo fraco.
      *
-     * erabilidade:
+     * Vulnerabilidade:
      * - Uso de MD5 sem salt, considerado inseguro.
      */
     public String armazenarSenhaInsegura(String senhaPlano) {
@@ -137,7 +137,7 @@ public class vulnerableCode {
     /**
      * Simula geração de HTML sem sanitização de entrada.
      *
-     * erabilidade:
+     * Vulnerabilidade:
      * - XSS (Cross-Site Scripting), pois o valor de "nome" é injetado
      *   diretamente na página sem escapar caracteres.
      */
@@ -145,12 +145,12 @@ public class vulnerableCode {
         // 7) XSS – entrada do usuário é colocada diretamente no HTML
         String html =
                 "<html>" +
-                        "<head><title>Perfil do Usuário</title></head>" +
-                        "<body>" +
-                        "<h1>Bem-vindo, " + nome + "!</h1>" +
-                        "<p>Esse é o seu painel.</p>" +
-                        "</body>" +
-                        "</html>";
+                "<head><title>Perfil do Usuário</title></head>" +
+                "<body>" +
+                "<h1>Bem-vindo, " + nome + "!</h1>" +
+                "<p>Esse é o seu painel.</p>" +
+                "</body>" +
+                "</html>";
 
         return html;
     }
@@ -163,7 +163,7 @@ public class vulnerableCode {
      * serviço web / controlador HTTP, que seria o alvo de DAST.
      */
     public static void main(String[] args) {
-        vulnerableCode app = new vulnerableCode();
+        VulnerableCode app = new VulnerableCode();
 
         // Exemplo de login inseguro
         System.out.println("Tentando login inseguro...");
