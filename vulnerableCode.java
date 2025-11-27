@@ -29,7 +29,7 @@ public class vulnerableCode {
     /**
      * Simula um processo de login extremamente inseguro.
      *
-     * Vulnerabilidades principais:
+     * erabilidades principais:
      * - SQL Injection (concatenação direta de parâmetros na query).
      * - Exposição de credenciais no código.
      * - Uso de Statement em vez de PreparedStatement.
@@ -75,7 +75,7 @@ public class vulnerableCode {
     /**
      * Simula uma busca de usuários por termo de pesquisa.
      *
-     * Vulnerabilidade: SQL Injection pela concatenação da string "searchTerm".
+     * erabilidade: SQL Injection pela concatenação da string "searchTerm".
      */
     public void buscarUsuarioPorTermo(String searchTerm) {
         Connection conn = null;
@@ -107,7 +107,7 @@ public class vulnerableCode {
     /**
      * Exemplo de armazenamento de senha com algoritmo fraco.
      *
-     * Vulnerabilidade:
+     * erabilidade:
      * - Uso de MD5 sem salt, considerado inseguro.
      */
     public String armazenarSenhaInsegura(String senhaPlano) {
@@ -137,7 +137,7 @@ public class vulnerableCode {
     /**
      * Simula geração de HTML sem sanitização de entrada.
      *
-     * Vulnerabilidade:
+     * erabilidade:
      * - XSS (Cross-Site Scripting), pois o valor de "nome" é injetado
      *   diretamente na página sem escapar caracteres.
      */
@@ -163,7 +163,7 @@ public class vulnerableCode {
      * serviço web / controlador HTTP, que seria o alvo de DAST.
      */
     public static void main(String[] args) {
-        VulnerableCode app = new VulnerableCode();
+        vulnerableCode app = new vulnerableCode();
 
         // Exemplo de login inseguro
         System.out.println("Tentando login inseguro...");
